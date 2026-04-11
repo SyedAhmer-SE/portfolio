@@ -1,0 +1,242 @@
+'use client';
+
+import { motion, useInView } from 'framer-motion';
+import { useRef, useState } from 'react';
+import { HiExternalLink, HiCode, HiOutlineFolderOpen } from 'react-icons/hi';
+import { FaGithub } from 'react-icons/fa';
+
+const projects = [
+  {
+    title: '2D Game Environment',
+    description: 'Designed and built game levels with tilemaps, integrating assets and optimizing gameplay performance.',
+    tech: ['Unity', 'C#', 'Game Design'],
+    type: 'Game Dev',
+  },
+  {
+    title: 'Hack-and-Slash Game',
+    description: 'Built a functional hack-and-slash game demo for FYP. Implemented character controls, combat mechanics, animations, and UI.',
+    tech: ['Unreal Engine 5', 'C++', 'Blueprints'],
+    type: 'Game Dev',
+  },
+  {
+    title: 'Student Grade Prediction System',
+    description: 'Developed a KNN-based machine learning model to predict student grades with comprehensive data visualization.',
+    tech: ['Python', 'Scikit-learn', 'Pandas'],
+    type: 'Machine Learning',
+  },
+  {
+    title: 'Automated Email Management',
+    description: 'Created a python-based tool for sending personalized bulk emails efficiently for academic use and communications.',
+    tech: ['Python', 'SMTP', 'Automation'],
+    type: 'Scripting',
+  },
+  {
+    title: 'E-Commerce Platform',
+    description: 'Developed a responsive online store with secure payment integration and custom theme design for enhanced UX.',
+    tech: ['WordPress', 'WooCommerce', 'PHP'],
+    type: 'Web Dev',
+  },
+  {
+    title: 'Certificate Sender App',
+    description: 'Created an app to email a single PDF certificate to multiple recipients from a CSV list with personalized messages.',
+    tech: ['Python', 'Streamlit', 'Pandas'],
+    type: 'Web App',
+  },
+];
+
+export default function Projects() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  // Get unique categories
+  const categories = ['All', ...Array.from(new Set(projects.map(p => p.type)))];
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  const filteredProjects = activeCategory === 'All'
+    ? projects
+    : projects.filter(p => p.type === activeCategory);
+
+  return (
+    <section id="projects" className="py-24 md:py-32 relative" style={{ background: 'var(--section-alt)' }}>
+      <div ref={ref} className="max-w-7xl mx-auto px-6">
+        {/* Section header */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
+          <span
+            className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4"
+            style={{ background: 'var(--primary-glow)', color: 'var(--primary)' }}
+          >
+            Featured Work
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            Projects I've <span className="gradient-text">built</span>
+          </h2>
+          <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--muted)' }}>
+            A showcase of my recent work in game development, web applications, and machine learning.
+          </p>
+        </motion.div>
+
+        {/* Filter categories */}
+        <motion.div
+          className="flex flex-wrap justify-center gap-2 md:gap-4 mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className="px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300"
+              style={{
+                background: activeCategory === cat ? 'var(--primary)' : 'var(--card-bg)',
+                color: activeCategory === cat ? '#fff' : 'var(--muted)',
+                border: `1px solid ${activeCategory === cat ? 'var(--primary)' : 'var(--card-border)'}`,
+                boxShadow: activeCategory === cat ? 'var(--custom-shadow-md)' : 'none',
+              }}
+            >
+              {cat}
+            </button>
+          ))}
+        </motion.div>
+
+        {/* Projects Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProjects.map((project, idx) => (
+            <motion.div
+              key={project.title}
+              className="card-hover rounded-3xl overflow-hidden flex flex-col h-full"
+              style={{
+                background: 'var(--card-bg)',
+                border: '1px solid var(--card-border)',
+              }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.3 + idx * 0.1 }}
+              onMouseEnter={() => setHoveredIndex(idx)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              layout
+            >
+              {/* Project "Image" mockup */}
+              <div
+                className="h-48 relative overflow-hidden flex flex-col"
+                style={{ background: 'var(--section-alt)' }}
+              >
+                {/* Browser/Window mockup header */}
+                <div className="h-8 flex items-center px-4 gap-1.5" style={{ background: 'rgba(0,0,0,0.03)' }}>
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+                </div>
+                {/* Mockup body */}
+                <div className="flex-1 p-4 flex items-center justify-center relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--primary-glow)] opacity-50" />
+                  
+                  {/* Abstract representation of project based on type */}
+                  <motion.div 
+                    className="w-full h-full rounded-lg border border-[var(--glass-border)] bg-[var(--card-bg)] shadow-sm flex flex-col p-3 gap-2"
+                    animate={{ y: hoveredIndex === idx ? -5 : 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="h-3 w-1/3 rounded-full bg-[var(--muted-light)] opacity-30" />
+                    <div className="h-2 w-full rounded-full bg-[var(--muted-light)] opacity-20" />
+                    <div className="h-2 w-5/6 rounded-full bg-[var(--muted-light)] opacity-20" />
+                    <div className="h-2 w-4/6 rounded-full bg-[var(--muted-light)] opacity-20" />
+                    
+                    <div className="mt-auto grid grid-cols-2 gap-2">
+                       <div className="h-10 rounded bg-[var(--primary-glow)]" />
+                       <div className="h-10 rounded bg-[var(--primary-glow)]" />
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* Hover overlay with links */}
+                <motion.div
+                  className="absolute inset-0 flex items-center justify-center gap-4 backdrop-blur-sm"
+                  style={{ background: 'rgba(var(--background), 0.7)' }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: hoveredIndex === idx ? 1 : 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <a
+                    href="#"
+                    className="w-12 h-12 rounded-full flex items-center justify-center text-white transition-transform hover:scale-110"
+                    style={{ background: 'var(--primary)' }}
+                    aria-label="View Live Project"
+                  >
+                    <HiExternalLink size={20} />
+                  </a>
+                  <a
+                    href="#"
+                    className="w-12 h-12 rounded-full flex items-center justify-center transition-transform hover:scale-110"
+                    style={{ background: 'var(--card-bg)', color: 'var(--foreground)', border: '1px solid var(--card-border)' }}
+                    aria-label="View Source Code"
+                  >
+                    <FaGithub size={20} />
+                  </a>
+                </motion.div>
+              </div>
+
+              {/* Project Info */}
+              <div className="p-6 flex-1 flex flex-col">
+                <div className="flex justify-between items-start mb-4">
+                  <div className="flex flex-col">
+                    <span 
+                      className="text-xs font-semibold uppercase tracking-wider mb-2"
+                      style={{ color: 'var(--primary)' }}
+                    >
+                      {project.type}
+                    </span>
+                    <h3 className="text-xl font-bold" style={{ color: 'var(--foreground)' }}>
+                      {project.title}
+                    </h3>
+                  </div>
+                  <HiOutlineFolderOpen className="text-2xl" style={{ color: 'var(--muted-light)' }} />
+                </div>
+                
+                <p className="text-sm mb-6 flex-1 text-pretty" style={{ color: 'var(--muted)' }}>
+                  {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t" style={{ borderColor: 'var(--card-border)' }}>
+                  {project.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium"
+                      style={{ background: 'var(--section-alt)', color: 'var(--muted)' }}
+                    >
+                      <HiCode size={12} />
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+        
+        <motion.div 
+          className="mt-16 text-center"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: 1 }}
+        >
+          <a 
+            href="https://github.com" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-medium hover:underline"
+            style={{ color: 'var(--primary)' }}
+          >
+            View more on my GitHub <HiExternalLink />
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
