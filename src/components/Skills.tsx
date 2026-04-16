@@ -3,7 +3,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import {
-  SiKotlin, SiJetpackcompose, SiWordpress, SiHtml5, SiCss3, SiBootstrap,
+  SiKotlin, SiJetpackcompose, SiWordpress, SiHtml5, SiCss, SiBootstrap,
   SiJavascript, SiPhp, SiPython, SiStreamlit, SiScikitlearn, SiTensorflow,
   SiOpencv, SiPandas, SiGit, SiGithub, SiFigma
 } from 'react-icons/si';
@@ -15,7 +15,7 @@ const skillCategories = [
     description: 'Building responsive interfaces and Android apps',
     skills: [
       { name: 'JavaScript', icon: SiJavascript, level: 85, color: '#F7DF1E' },
-      { name: 'HTML5/CSS3', icon: SiHtml5, level: 92, color: '#E34F26' },
+      { name: 'HTML5/CSS3', icon: SiCss, level: 92, color: '#E34F26' },
       { name: 'WordPress', icon: SiWordpress, level: 80, color: '#21759B' },
     ],
   },

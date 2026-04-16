@@ -6,9 +6,9 @@ import { HiMail, HiLocationMarker, HiPhone } from 'react-icons/hi';
 import { FaGithub, FaLinkedin, FaTwitter, FaDribbble } from 'react-icons/fa';
 
 const contactInfo = [
-  { icon: HiMail, label: 'Email', value: 'alex@example.com', href: 'mailto:alex@example.com' },
-  { icon: HiLocationMarker, label: 'Location', value: 'San Francisco, CA', href: '#' },
-  { icon: HiPhone, label: 'Phone', value: '+1 (555) 123-4567', href: 'tel:+15551234567' },
+  { icon: HiMail, label: 'Email', value: 'ahmerasif200@gmail.com', href: 'mailto:ahmerasif200@gmail.com' },
+  { icon: HiLocationMarker, label: 'Location', value: 'Quetta, Pakistan', href: '#' },
+  { icon: HiPhone, label: 'Phone', value: '+92 3318925614', href: 'tel:+923318925614' },
 ];
 
 const socials = [
