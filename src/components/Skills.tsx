@@ -3,11 +3,12 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import {
-  SiUnity, SiUnrealengine, SiCsharp, SiCplusplus,
+  SiUnity, SiUnrealengine, SiCplusplus,
   SiPython, SiJavascript, SiKotlin, SiGit, SiGithub,
-  SiFigma, SiWordpress, SiAdobeaftereffects, SiAndroidstudio
+  SiFigma, SiWordpress, SiAndroidstudio
 } from 'react-icons/si';
-import { FaJava, FaGamepad } from 'react-icons/fa';
+import { TbBrandCSharp } from 'react-icons/tb';
+import { FaJava, FaGamepad, FaVideo } from 'react-icons/fa';
 
 const skillCategories = [
   {
@@ -16,7 +17,7 @@ const skillCategories = [
     skills: [
       { name: 'Unity 2D/3D', icon: SiUnity, level: 90, color: '#FFFFFF' },
       { name: 'Unreal Engine 5', icon: SiUnrealengine, level: 70, color: '#0E1128' },
-      { name: 'C# (Primary)', icon: SiCsharp, level: 92, color: '#68217A' },
+      { name: 'C# (Primary)', icon: TbBrandCSharp, level: 92, color: '#68217A' },
       { name: 'C++', icon: SiCplusplus, level: 65, color: '#00599C' },
       { name: 'Game Design', icon: FaGamepad, level: 85, color: '#E34F26' },
     ],
@@ -38,7 +39,7 @@ const skillCategories = [
     description: 'Design, mobile development, and web platforms',
     skills: [
       { name: 'Figma', icon: SiFigma, level: 75, color: '#F24E1E' },
-      { name: 'After Effects', icon: SiAdobeaftereffects, level: 65, color: '#9999FF' },
+      { name: 'After Effects', icon: FaVideo, level: 65, color: '#9999FF' },
       { name: 'Android Studio', icon: SiAndroidstudio, level: 72, color: '#3DDC84' },
       { name: 'WordPress', icon: SiWordpress, level: 78, color: '#21759B' },
     ],
