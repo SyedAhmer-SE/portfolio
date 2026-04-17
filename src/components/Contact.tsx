@@ -23,12 +23,42 @@ export default function Contact() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
-    setFormState({ name: '', email: '', message: '' });
+    setLoading(true);
+    setError('');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: '523977e8-63b6-4987-9e55-23f7f90d04c6',
+          name: formState.name,
+          email: formState.email,
+          message: formState.message,
+          from_name: 'Portfolio Contact Form',
+          subject: `New message from ${formState.name} via Portfolio`,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitted(true);
+        setFormState({ name: '', email: '', message: '' });
+        setTimeout(() => setSubmitted(false), 3000);
+      } else {
+        setError('Something went wrong. Please try again.');
+      }
+    } catch {
+      setError('Failed to send message. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -151,16 +181,33 @@ export default function Contact() {
                   />
                 </div>
 
+                {error && (
+                  <p className="text-sm text-red-400 text-center">{error}</p>
+                )}
+
                 <motion.button
                   type="submit"
+                  disabled={loading}
                   className="btn-glow w-full py-4 rounded-xl text-white font-semibold text-base"
-                  style={{ background: 'linear-gradient(135deg, var(--primary), var(--primary-light))' }}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  style={{
+                    background: 'linear-gradient(135deg, var(--primary), var(--primary-light))',
+                    opacity: loading ? 0.7 : 1,
+                    cursor: loading ? 'not-allowed' : 'pointer',
+                  }}
+                  whileHover={loading ? {} : { scale: 1.02 }}
+                  whileTap={loading ? {} : { scale: 0.98 }}
                 >
                   {submitted ? (
                     <span className="flex items-center justify-center gap-2">
                       ✓ Message Sent!
+                    </span>
+                  ) : loading ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24" fill="none">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      </svg>
+                      Sending...
                     </span>
                   ) : (
                     'Send Message'
