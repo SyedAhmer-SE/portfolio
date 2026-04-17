@@ -108,20 +108,19 @@ export default function Hero() {
               <HiArrowDown className="animate-bounce" />
             </motion.a>
 
-            <motion.a
-              href="#"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-base transition-all duration-300"
+            <a
+              href="/resume.pdf"
+              download="Ahmer_Resume.pdf"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-base transition-all duration-300 hover:scale-105 active:scale-95"
               style={{
                 border: '2px solid var(--card-border)',
                 color: 'var(--foreground)',
                 background: 'var(--card-bg)',
               }}
-              whileHover={{ scale: 1.05, borderColor: 'var(--primary)' }}
-              whileTap={{ scale: 0.95 }}
             >
               <HiDownload />
               Download CV
-            </motion.a>
+            </a>
           </motion.div>
 
           {/* Social Links */}
