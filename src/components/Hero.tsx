@@ -132,7 +132,7 @@ export default function Hero() {
           >
             {[
               { icon: FaGithub, href: 'https://github.com/SyedAhmer-SE', label: 'GitHub' },
-              { icon: FaLinkedin, href: 'https://linkedin.com/in/ahmerasif', label: 'LinkedIn' },
+              { icon: FaLinkedin, href: 'https://linkedin.com/in/SyedAhmer-SE', label: 'LinkedIn' },
               { icon: HiMail, href: 'mailto:ahmerasif200@gmail.com', label: 'Email' },
             ].map((social) => (
               <motion.a
