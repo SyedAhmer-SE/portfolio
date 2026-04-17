@@ -3,44 +3,44 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import {
-  SiKotlin, SiJetpackcompose, SiWordpress, SiHtml5, SiCss, SiBootstrap,
-  SiJavascript, SiPhp, SiPython, SiStreamlit, SiScikitlearn, SiTensorflow,
-  SiOpencv, SiPandas, SiGit, SiGithub, SiFigma
+  SiUnity, SiUnrealengine, SiCsharp, SiCplusplus,
+  SiPython, SiJavascript, SiKotlin, SiGit, SiGithub,
+  SiFigma, SiWordpress, SiAdobeaftereffects, SiAndroidstudio
 } from 'react-icons/si';
-import { FaAndroid, FaJava, FaVideo } from 'react-icons/fa';
+import { FaJava, FaGamepad } from 'react-icons/fa';
 
 const skillCategories = [
   {
-    title: 'Mobile & Web Dev',
-    description: 'Building responsive interfaces and Android apps',
+    title: 'Game Development',
+    description: 'Game engines, gameplay systems, and optimization',
     skills: [
-      { name: 'JavaScript', icon: SiJavascript, level: 85, color: '#F7DF1E' },
-      { name: 'HTML5/CSS3', icon: SiCss, level: 92, color: '#E34F26' },
-      { name: 'WordPress', icon: SiWordpress, level: 80, color: '#21759B' },
+      { name: 'Unity 2D/3D', icon: SiUnity, level: 90, color: '#FFFFFF' },
+      { name: 'Unreal Engine 5', icon: SiUnrealengine, level: 70, color: '#0E1128' },
+      { name: 'C# (Primary)', icon: SiCsharp, level: 92, color: '#68217A' },
+      { name: 'C++', icon: SiCplusplus, level: 65, color: '#00599C' },
+      { name: 'Game Design', icon: FaGamepad, level: 85, color: '#E34F26' },
     ],
   },
   {
-    title: 'Programming & ML',
-    description: 'Core languages, data science and machine learning',
+    title: 'Languages & Tools',
+    description: 'Core languages, version control, and development tools',
     skills: [
-      { name: 'Python', icon: SiPython, level: 88, color: '#3776AB' },
-      { name: 'Java', icon: FaJava, level: 80, color: '#ED8B00' },
-      { name: 'Scikit-learn', icon: SiScikitlearn, level: 75, color: '#F7931E' },
-      { name: 'TensorFlow', icon: SiTensorflow, level: 60, color: '#FF6F00' },
-      { name: 'OpenCV', icon: SiOpencv, level: 65, color: '#5C3EE8' },
-      { name: 'Pandas', icon: SiPandas, level: 72, color: '#150458' },
-    ],
-  },
-  {
-    title: 'Tools & Platforms',
-    description: 'Design, version control, and frameworks',
-    skills: [
+      { name: 'Python', icon: SiPython, level: 82, color: '#3776AB' },
+      { name: 'Java', icon: FaJava, level: 75, color: '#ED8B00' },
+      { name: 'Kotlin', icon: SiKotlin, level: 70, color: '#7F52FF' },
+      { name: 'JavaScript', icon: SiJavascript, level: 80, color: '#F7DF1E' },
       { name: 'Git', icon: SiGit, level: 88, color: '#F05032' },
       { name: 'GitHub', icon: SiGithub, level: 90, color: '#181717' },
+    ],
+  },
+  {
+    title: 'Design & Platforms',
+    description: 'Design, mobile development, and web platforms',
+    skills: [
       { name: 'Figma', icon: SiFigma, level: 75, color: '#F24E1E' },
-      { name: 'After Effects', icon: FaVideo, level: 65, color: '#9999FF' },
-      { name: 'Streamlit', icon: SiStreamlit, level: 78, color: '#FF4B4B' },
-      { name: 'Bootstrap', icon: SiBootstrap, level: 82, color: '#7952B3' },
+      { name: 'After Effects', icon: SiAdobeaftereffects, level: 65, color: '#9999FF' },
+      { name: 'Android Studio', icon: SiAndroidstudio, level: 72, color: '#3DDC84' },
+      { name: 'WordPress', icon: SiWordpress, level: 78, color: '#21759B' },
     ],
   },
 ];
@@ -70,7 +70,7 @@ export default function Skills() {
             <span className="gradient-text">work with</span>
           </h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--muted)' }}>
-            A diverse set of tools and frameworks I use across mobile, web, and game development.
+            A diverse set of tools and frameworks I use across game development, mobile, and web.
           </p>
         </motion.div>
 

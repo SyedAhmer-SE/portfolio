@@ -7,40 +7,52 @@ import { FaGithub } from 'react-icons/fa';
 
 const projects = [
   {
-    title: '2D Game Environment',
-    description: 'Designed and built game levels with tilemaps, integrating assets and optimizing gameplay performance.',
-    tech: ['Unity', 'C#', 'Game Design'],
+    title: 'Candy Run!!',
+    description: 'Complete 3D endless runner mobile game with procedural obstacle spawning, 3-lane swipe controls, coin economy system, and character-switching with unlockable avatars. Published on Android.',
+    tech: ['Unity', 'C#', 'Android'],
     type: 'Game Dev',
+    github: 'https://github.com/SyedAhmer-SE',
+    live: '',
   },
   {
-    title: 'Hack-and-Slash Game',
-    description: 'Built a functional hack-and-slash game demo for FYP. Implemented character controls, combat mechanics, animations, and UI.',
+    title: 'Hack-and-Slash Action Demo',
+    description: 'Third-person combat prototype with combo-based combat, hit detection, enemy AI behavior trees, and character state machine for idle, attack, dodge, and death animations.',
     tech: ['Unreal Engine 5', 'C++', 'Blueprints'],
     type: 'Game Dev',
+    github: 'https://github.com/SyedAhmer-SE',
+    live: '',
   },
   {
-    title: 'Student Grade Prediction System',
-    description: 'Developed a KNN-based machine learning model to predict student grades with comprehensive data visualization.',
-    tech: ['Python', 'Scikit-learn', 'Pandas'],
-    type: 'Machine Learning',
+    title: '2D Game Environment',
+    description: 'Modular, reusable level architecture using Unity Tilemaps with custom C# scripting for gameplay triggers, interactive elements, and optimized rendering pipeline.',
+    tech: ['Unity', 'C#', 'Tilemaps'],
+    type: 'Game Dev',
+    github: 'https://github.com/SyedAhmer-SE',
+    live: '',
   },
   {
-    title: 'Automated Email Management',
-    description: 'Created a python-based tool for sending personalized bulk emails efficiently for academic use and communications.',
-    tech: ['Python', 'SMTP', 'Automation'],
-    type: 'Scripting',
-  },
-  {
-    title: 'E-Commerce Platform',
-    description: 'Developed a responsive online store with secure payment integration and custom theme design for enhanced UX.',
-    tech: ['WordPress', 'WooCommerce', 'PHP'],
+    title: 'Portfolio Website',
+    description: 'Modern, responsive personal portfolio built with Next.js and Framer Motion featuring dark theme, smooth animations, and Web3Forms contact integration.',
+    tech: ['Next.js', 'TypeScript', 'Framer Motion'],
     type: 'Web Dev',
+    github: 'https://github.com/SyedAhmer-SE/portfolio',
+    live: 'https://portfolio-git-main-syedahmer-ses-projects.vercel.app',
+  },
+  {
+    title: 'Responsive Web Interfaces',
+    description: 'Built pixel-accurate, responsive web components from Figma designs during internship at Xpert Digital Company. Tested and documented 20+ bugs across 3 web applications.',
+    tech: ['HTML', 'CSS', 'JavaScript'],
+    type: 'Web Dev',
+    github: 'https://github.com/SyedAhmer-SE',
+    live: '',
   },
   {
     title: 'Certificate Sender App',
-    description: 'Created an app to email a single PDF certificate to multiple recipients from a CSV list with personalized messages.',
+    description: 'Streamlit-based application to email a single PDF certificate to multiple recipients from a CSV list with personalized messages and automated delivery.',
     tech: ['Python', 'Streamlit', 'Pandas'],
     type: 'Web App',
+    github: 'https://github.com/SyedAhmer-SE',
+    live: '',
   },
 ];
 
@@ -77,7 +89,7 @@ export default function Projects() {
             Projects I've <span className="gradient-text">built</span>
           </h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--muted)' }}>
-            A showcase of my recent work in game development, web applications, and machine learning.
+            A showcase of my work in game development, web applications, and automation tools.
           </p>
         </motion.div>
 
@@ -163,19 +175,25 @@ export default function Projects() {
                   animate={{ opacity: hoveredIndex === idx ? 1 : 0 }}
                   transition={{ duration: 0.2 }}
                 >
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 rounded-full flex items-center justify-center text-white transition-transform hover:scale-110"
+                      style={{ background: 'var(--primary)' }}
+                      aria-label="View Live Project"
+                    >
+                      <HiExternalLink size={20} />
+                    </a>
+                  )}
                   <a
-                    href="#"
-                    className="w-12 h-12 rounded-full flex items-center justify-center text-white transition-transform hover:scale-110"
-                    style={{ background: 'var(--primary)' }}
-                    aria-label="View Live Project"
-                  >
-                    <HiExternalLink size={20} />
-                  </a>
-                  <a
-                    href="#"
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-12 h-12 rounded-full flex items-center justify-center transition-transform hover:scale-110"
                     style={{ background: 'var(--card-bg)', color: 'var(--foreground)', border: '1px solid var(--card-border)' }}
-                    aria-label="View Source Code"
+                    aria-label="View Source Code on GitHub"
                   >
                     <FaGithub size={20} />
                   </a>
@@ -227,7 +245,7 @@ export default function Projects() {
           transition={{ delay: 1 }}
         >
           <a 
-            href="https://github.com" 
+            href="https://github.com/SyedAhmer-SE" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm font-medium hover:underline"
