@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { HiArrowDown, HiDownload } from 'react-icons/hi';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { HiMail } from 'react-icons/hi';
 
 export default function Hero() {
@@ -133,6 +133,7 @@ export default function Hero() {
             {[
               { icon: FaGithub, href: 'https://github.com/SyedAhmer-SE', label: 'GitHub' },
               { icon: FaLinkedin, href: 'https://linkedin.com/in/SyedAhmer-SE', label: 'LinkedIn' },
+              { icon: FaInstagram, href: 'https://www.instagram.com/s_ahmer2/', label: 'Instagram' },
               { icon: HiMail, href: 'mailto:ahmerasif200@gmail.com', label: 'Email' },
             ].map((social) => (
               <motion.a

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter, FaDribbble, FaHeart } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram, FaHeart } from 'react-icons/fa';
 
 const footerLinks = [
   { name: 'Home', href: '#home' },
@@ -14,6 +14,7 @@ const footerLinks = [
 const socials = [
   { icon: FaGithub, href: 'https://github.com/SyedAhmer-SE', label: 'GitHub' },
   { icon: FaLinkedin, href: 'https://linkedin.com/in/SyedAhmer-SE', label: 'LinkedIn' },
+  { icon: FaInstagram, href: 'https://www.instagram.com/s_ahmer2/', label: 'Instagram' },
 ];
 
 export default function Footer() {

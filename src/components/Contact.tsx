@@ -3,7 +3,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState, FormEvent } from 'react';
 import { HiMail, HiLocationMarker, HiPhone } from 'react-icons/hi';
-import { FaGithub, FaLinkedin, FaTwitter, FaDribbble } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 const contactInfo = [
   { icon: HiMail, label: 'Email', value: 'ahmerasif200@gmail.com', href: 'mailto:ahmerasif200@gmail.com' },
@@ -14,6 +14,7 @@ const contactInfo = [
 const socials = [
   { icon: FaGithub, href: 'https://github.com/SyedAhmer-SE', label: 'GitHub' },
   { icon: FaLinkedin, href: 'https://linkedin.com/in/SyedAhmer-SE', label: 'LinkedIn' },
+  { icon: FaInstagram, href: 'https://www.instagram.com/s_ahmer2/', label: 'Instagram' },
 ];
 
 export default function Contact() {
