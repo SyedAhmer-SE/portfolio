@@ -4,7 +4,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import {
   SiUnity, SiUnrealengine, SiCplusplus,
-  SiPython, SiJavascript, SiKotlin, SiGit, SiGithub,
+  SiPython, SiJavascript, SiHtml5, SiCss3,
   SiFigma, SiWordpress, SiAndroidstudio
 } from 'react-icons/si';
 import { TbBrandCSharp } from 'react-icons/tb';
@@ -15,23 +15,22 @@ const skillCategories = [
     title: 'Game Development',
     description: 'Game engines, gameplay systems, and optimization',
     skills: [
+      { name: 'C++ (Advanced)', icon: SiCplusplus, level: 92, color: '#00599C' },
+      { name: 'C# (Primary)', icon: TbBrandCSharp, level: 95, color: '#68217A' },
       { name: 'Unity 2D/3D', icon: SiUnity, level: 90, color: '#FFFFFF' },
-      { name: 'Unreal Engine 5', icon: SiUnrealengine, level: 70, color: '#0E1128' },
-      { name: 'C# (Primary)', icon: TbBrandCSharp, level: 92, color: '#68217A' },
-      { name: 'C++', icon: SiCplusplus, level: 65, color: '#00599C' },
-      { name: 'Game Design', icon: FaGamepad, level: 85, color: '#E34F26' },
+      { name: 'Unreal Engine 5', icon: SiUnrealengine, level: 85, color: '#0E1128' },
+      { name: 'Game Design', icon: FaGamepad, level: 88, color: '#E34F26' },
     ],
   },
   {
     title: 'Languages & Tools',
     description: 'Core languages, version control, and development tools',
     skills: [
+      { name: 'HTML5', icon: SiHtml5, level: 90, color: '#E34F26' },
+      { name: 'CSS3', icon: SiCss3, level: 85, color: '#1572B6' },
+      { name: 'JavaScript ES6+', icon: SiJavascript, level: 88, color: '#F7DF1E' },
       { name: 'Python', icon: SiPython, level: 82, color: '#3776AB' },
       { name: 'Java', icon: FaJava, level: 75, color: '#ED8B00' },
-      { name: 'Kotlin', icon: SiKotlin, level: 70, color: '#7F52FF' },
-      { name: 'JavaScript', icon: SiJavascript, level: 80, color: '#F7DF1E' },
-      { name: 'Git', icon: SiGit, level: 88, color: '#F05032' },
-      { name: 'GitHub', icon: SiGithub, level: 90, color: '#181717' },
     ],
   },
   {
