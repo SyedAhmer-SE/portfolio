@@ -93,7 +93,7 @@ export default function Projects() {
             Featured Work
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Projects I've <span className="gradient-text">built</span>
+            Projects I&apos;ve <span className="gradient-text">built</span>
           </h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--muted)' }}>
             A showcase of my work in game development, web applications, and automation tools.
