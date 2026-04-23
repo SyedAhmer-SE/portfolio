@@ -4,7 +4,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import {
   SiUnity, SiUnrealengine, SiCplusplus,
-  SiPython, SiJavascript, SiHtml5, SiCss3,
+  SiPython, SiJavascript, SiHtml5, SiCss,
   SiFigma, SiWordpress, SiAndroidstudio
 } from 'react-icons/si';
 import { TbBrandCSharp } from 'react-icons/tb';
@@ -27,7 +27,7 @@ const skillCategories = [
     description: 'Core languages, version control, and development tools',
     skills: [
       { name: 'HTML5', icon: SiHtml5, level: 90, color: '#E34F26' },
-      { name: 'CSS3', icon: SiCss3, level: 85, color: '#1572B6' },
+      { name: 'CSS3', icon: SiCss, level: 85, color: '#1572B6' },
       { name: 'JavaScript ES6+', icon: SiJavascript, level: 88, color: '#F7DF1E' },
       { name: 'Python', icon: SiPython, level: 82, color: '#3776AB' },
       { name: 'Java', icon: FaJava, level: 75, color: '#ED8B00' },
