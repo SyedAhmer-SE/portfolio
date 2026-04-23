@@ -4,6 +4,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { HiExternalLink, HiCode, HiOutlineFolderOpen } from 'react-icons/hi';
 import { FaGithub } from 'react-icons/fa';
+import Image from 'next/image';
 
 const projects = [
   {
@@ -13,6 +14,7 @@ const projects = [
     type: 'Game Dev',
     github: 'https://github.com/SyedAhmer-SE',
     live: '',
+    image: '/projects/candy_run.png',
   },
   {
     title: 'Hack-and-Slash Action Demo',
@@ -21,6 +23,7 @@ const projects = [
     type: 'Game Dev',
     github: 'https://github.com/SyedAhmer-SE',
     live: '',
+    image: '/projects/hack_and_slash.png',
   },
   {
     title: '2D Game Environment',
@@ -29,6 +32,7 @@ const projects = [
     type: 'Game Dev',
     github: 'https://github.com/SyedAhmer-SE',
     live: '',
+    image: '/projects/game_env_2d.png',
   },
   {
     title: 'Portfolio Website',
@@ -37,6 +41,7 @@ const projects = [
     type: 'Web Dev',
     github: 'https://github.com/SyedAhmer-SE/portfolio',
     live: 'https://portfolio-git-main-syedahmer-ses-projects.vercel.app',
+    image: '/projects/portfolio_web.png',
   },
   {
     title: 'Responsive Web Interfaces',
@@ -45,6 +50,7 @@ const projects = [
     type: 'Web Dev',
     github: 'https://github.com/SyedAhmer-SE',
     live: '',
+    image: '/projects/responsive_web.png',
   },
   {
     title: 'Certificate Sender App',
@@ -53,6 +59,7 @@ const projects = [
     type: 'Web App',
     github: 'https://github.com/SyedAhmer-SE',
     live: '',
+    image: '/projects/certificate_sender.png',
   },
 ];
 
@@ -140,31 +147,21 @@ export default function Projects() {
                 style={{ background: 'var(--section-alt)' }}
               >
                 {/* Browser/Window mockup header */}
-                <div className="h-8 flex items-center px-4 gap-1.5" style={{ background: 'rgba(0,0,0,0.03)' }}>
+                <div className="absolute top-0 left-0 right-0 h-8 flex items-center px-4 gap-1.5 z-20 bg-black/30 backdrop-blur-md">
                   <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
                   <div className="w-2.5 h-2.5 rounded-full bg-amber-400" />
                   <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
                 </div>
-                {/* Mockup body */}
-                <div className="flex-1 p-4 flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--primary-glow)] opacity-50" />
-                  
-                  {/* Abstract representation of project based on type */}
-                  <motion.div 
-                    className="w-full h-full rounded-lg border border-[var(--glass-border)] bg-[var(--card-bg)] shadow-sm flex flex-col p-3 gap-2"
-                    animate={{ y: hoveredIndex === idx ? -5 : 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="h-3 w-1/3 rounded-full bg-[var(--muted-light)] opacity-30" />
-                    <div className="h-2 w-full rounded-full bg-[var(--muted-light)] opacity-20" />
-                    <div className="h-2 w-5/6 rounded-full bg-[var(--muted-light)] opacity-20" />
-                    <div className="h-2 w-4/6 rounded-full bg-[var(--muted-light)] opacity-20" />
-                    
-                    <div className="mt-auto grid grid-cols-2 gap-2">
-                       <div className="h-10 rounded bg-[var(--primary-glow)]" />
-                       <div className="h-10 rounded bg-[var(--primary-glow)]" />
-                    </div>
-                  </motion.div>
+                {/* Image body */}
+                <div className="flex-1 relative overflow-hidden bg-[var(--section-alt)]">
+                  <Image 
+                    src={project.image} 
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out"
+                    style={{ transform: hoveredIndex === idx ? 'scale(1.05)' : 'scale(1)' }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--card-bg)] via-transparent to-transparent opacity-40" />
                 </div>
 
                 {/* Hover overlay with links */}
